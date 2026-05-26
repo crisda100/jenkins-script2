@@ -1,12 +1,12 @@
 
 properties(
     [parameters([string(defaultValue: '4111111111111111', name: 'cardNumber')])])
-node('dev')
+node
 {
    
    stage('Get GIT repository')
    {
-    git branch: 'main', url: 'https://github.com/ApasoftTraining/jenkins-script2.git'
+    git branch: 'main', url: 'https://github.com/crisda100/jenkins-script2.git'
    }
    stage('Compile'){
     sh 'mvn compile'
@@ -19,8 +19,7 @@ node('dev')
     sh "mvn exec:java -Dexec.mainClass='com.apasoft.CardProcessor' -Dexec.args='${cardNumber}'"
     stash includes: 'target/**', name: 'target-jar'
    }
-}
-node('prod'){
+
     stage('Deploy') {
         //We unpack the target on the new node
         unstash 'target-jar'
