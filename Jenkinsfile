@@ -5,7 +5,7 @@ node
 
    stage('Check card number'){
     if (cardNumber.length() != 16) {
-        error 'Invalid card number $cardNumber.. !!! Incorrect'
+        error "Invalid card number ${cardNumber}.. !!! Incorrect"
     }else
         echo 'Success card number $cardNumber'
    }
