@@ -7,7 +7,7 @@ node
     if (cardNumber.length() != 16) {
         error "Invalid card number ${cardNumber}.. !!! Incorrect"
     }else
-        echo 'Success card number $cardNumber'
+        echo "Success card number $cardNumber"
    }
 
    stage('Get GIT repository')
