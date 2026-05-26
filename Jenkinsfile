@@ -1,8 +1,7 @@
-
-properties(
-    [parameters([string(defaultValue: '4111111111111111', name: 'cardNumber')])])
 node
 {
+   def cardNumber = input message: 'Introduced card number', 
+   parameters: [string(defaultValue: '4111111111111111', name: 'cardNumber')]
    
    stage('Get GIT repository')
    {
